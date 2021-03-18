@@ -8,7 +8,7 @@ import copy
 
 mouse = Controller()
 
-folder = 'cubismEasy/'
+folder = 'darkCastleEz/'
 
 roundBTD = 0
 prev_round = -1
@@ -53,13 +53,13 @@ def change_settings():
     print("open settings")
     time.sleep(1)
     try:
-        x,y = pag.locateCenterOnScreen('drop.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('drop.png', grayscale=True)
         pag.click(x, y)
         print('detected')
     except:
         print('no changes made')
     try:
-        x,y = pag.locateCenterOnScreen('auto.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('auto.png', grayscale=True)
         pag.click(x, y)
         print('detected')
     except:
@@ -71,14 +71,14 @@ def change_settings():
 
 def check_win():
     try:
-        x,y = pag.locateCenterOnScreen('next.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('next.png', grayscale=True)
         pag.click(x, y)
         print('detected')
         return True
     except:
         print('no changes made')
     try:
-        x,y = pag.locateCenterOnScreen('victorylogo.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('victorylogo.png', grayscale=True)
         pag.click(813,833)
         print('detected')
         return True
@@ -87,7 +87,7 @@ def check_win():
 
 def check_loss():
     try:
-        x,y = pag.locateCenterOnScreen('defeatlogo.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('defeatlogo.png', grayscale=True)
         pag.click(700,805)
         print('detected')
         return True
@@ -97,7 +97,7 @@ def check_loss():
 def check_round():
     global roundBTD, prev_round, faster
     try:
-        x,y = pag.locateCenterOnScreen('start.png', grayscale=True, confidence=0.9)
+        x,y = pag.locateCenterOnScreen('start.png', grayscale=True)
         
         if prev_round != roundBTD:
             do_action()
